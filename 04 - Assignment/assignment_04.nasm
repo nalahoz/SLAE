@@ -14,18 +14,16 @@ _start:
 
 decoder:
 
-	pop esi				; 3 - after the jump we recover the contents of "shellcode" and place them in ESI
+	pop esi				; 3 - After the jump we recover the contents of "shellcode" and place them in ESI
 	xor ecx, ecx			; zero ecx
 	mov cl, 30			; move the length of shellcode for the iteration when decoding
 decode:
 
 	not byte [esi]			; First we complement (NOT)
-	sub byte [esi], 0x05		; Second we add 5 as we substract that amount when encoding
-	;dec byte [esi]
-	;inc byte [esi]
-	inc esi				; ESI in incremented to continue with the next item to decode
+	sub byte [esi], 0x05		; Second we substract 5 as we added that number to each shellcode byte when encoding
+	inc esi				; ESI is incremented to continue with the next byte to decode
 	loop decode			; Iteration
-	jmp short shellcode		; Continue iteration until we reach the length of the shellcode
+	jmp short shellcode		; Jump to "shellcode" once the iteration is finished
 
 
 call_shellcode:				; 2 - We jump here and the first instruction is to call decoder, this means that the instruction
