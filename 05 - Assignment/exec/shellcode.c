@@ -13,7 +13,7 @@ main()
 
 	printf("Shellcode Length:  %d\n", strlen(buf));
 
-	int (*ret)() = (int(*)())code;
+	int (*ret)() = (int(*)())buf;
 
 	ret();
 
