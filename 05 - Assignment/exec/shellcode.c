@@ -11,7 +11,7 @@ unsigned char buf[] =
 main()
 {
 
-	printf("Shellcode Length:  %d\n", strlen(code));
+	printf("Shellcode Length:  %d\n", strlen(buf));
 
 	int (*ret)() = (int(*)())code;
 
